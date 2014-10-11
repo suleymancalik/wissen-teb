@@ -124,13 +124,13 @@
                                             <exclude reference="o7h-RB-Jze"/>
                                         </mask>
                                         <mask key="constraints">
-                                            <exclude reference="Jvg-tE-0EB"/>
-                                            <exclude reference="rtQ-vN-HBc"/>
                                             <exclude reference="9cD-Np-h3W"/>
                                             <exclude reference="HB6-p6-xkQ"/>
                                             <exclude reference="5bh-yC-5pQ"/>
                                             <exclude reference="oCh-Tj-fn3"/>
                                             <exclude reference="pAk-Gl-kcW"/>
+                                            <exclude reference="Jvg-tE-0EB"/>
+                                            <exclude reference="rtQ-vN-HBc"/>
                                         </mask>
                                     </variation>
                                     <variation key="heightClass=regular-widthClass=compact">
@@ -140,13 +140,13 @@
                                             <include reference="o7h-RB-Jze"/>
                                         </mask>
                                         <mask key="constraints">
-                                            <include reference="Jvg-tE-0EB"/>
-                                            <include reference="rtQ-vN-HBc"/>
                                             <include reference="9cD-Np-h3W"/>
                                             <include reference="HB6-p6-xkQ"/>
                                             <include reference="5bh-yC-5pQ"/>
                                             <include reference="oCh-Tj-fn3"/>
                                             <include reference="pAk-Gl-kcW"/>
+                                            <include reference="Jvg-tE-0EB"/>
+                                            <include reference="rtQ-vN-HBc"/>
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
@@ -155,6 +155,63 @@
                                     <outlet property="iconView" destination="o7h-RB-Jze" id="BaY-iV-mGA"/>
                                     <outlet property="lblTitle" destination="vtb-eC-lVQ" id="9UJ-8x-Y6b"/>
                                 </connections>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TabCell" rowHeight="40" id="SN0-i3-PUd">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SN0-i3-PUd" id="QhW-86-pOt">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="TKF-cs-4O3">
+                                            <rect key="frame" x="-61" y="-14" width="123" height="29"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="28" id="d56-uF-pN4"/>
+                                                <constraint firstAttribute="width" constant="270" id="vId-EH-7a5"/>
+                                            </constraints>
+                                            <segments>
+                                                <segment title="Tümü"/>
+                                                <segment title="Şube"/>
+                                                <segment title="ATM"/>
+                                            </segments>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="d56-uF-pN4"/>
+                                                    <exclude reference="vId-EH-7a5"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="heightClass=regular-widthClass=compact">
+                                                <mask key="constraints">
+                                                    <include reference="d56-uF-pN4"/>
+                                                    <include reference="vId-EH-7a5"/>
+                                                </mask>
+                                            </variation>
+                                            <connections>
+                                                <action selector="actTabChanged:" destination="GAb-bd-UKs" eventType="valueChanged" id="ZSE-Qr-FnC"/>
+                                            </connections>
+                                        </segmentedControl>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="centerY" secondItem="TKF-cs-4O3" secondAttribute="centerY" id="gwA-Bj-Unh"/>
+                                        <constraint firstAttribute="centerX" secondItem="TKF-cs-4O3" secondAttribute="centerX" id="sGm-P8-UvS"/>
+                                    </constraints>
+                                    <variation key="default">
+                                        <mask key="subviews">
+                                            <exclude reference="TKF-cs-4O3"/>
+                                        </mask>
+                                        <mask key="constraints">
+                                            <exclude reference="gwA-Bj-Unh"/>
+                                            <exclude reference="sGm-P8-UvS"/>
+                                        </mask>
+                                    </variation>
+                                    <variation key="heightClass=regular-widthClass=compact">
+                                        <mask key="subviews">
+                                            <include reference="TKF-cs-4O3"/>
+                                        </mask>
+                                        <mask key="constraints">
+                                            <include reference="gwA-Bj-Unh"/>
+                                            <include reference="sGm-P8-UvS"/>
+                                        </mask>
+                                    </variation>
+                                </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
                         <sections/>
@@ -166,7 +223,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pvd-IF-CRk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2205" y="207"/>
+            <point key="canvasLocation" x="-2304" y="205.5"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">

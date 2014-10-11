@@ -12,6 +12,12 @@ class MenuVC: UITableViewController {
 
     var atms:Array<ATM> = []
     var branchs:Array<Branch> = []
+    var selectedTab:Int = 0
+    
+    
+    override func prefersStatusBarHidden() -> Bool {
+        return true
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,15 +44,27 @@ class MenuVC: UITableViewController {
     
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 2
+        
+        switch selectedTab {
+        case 0:
+            return 3
+        case 1:
+            return 2
+        case 2:
+            return 2
+        default:
+            return 0
+        }
     }
     
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         switch indexPath.section {
         case 0:
-            return ATMCell.height()
+            return 40
         case 1:
+            return ATMCell.height()
+        case 2:
             return 44
         default:
             return 0
@@ -56,8 +74,10 @@ class MenuVC: UITableViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
-            return atms.count
+            return 1
         case 1:
+            return atms.count
+        case 2:
             return branchs.count
         default:
             return 0
@@ -69,22 +89,36 @@ class MenuVC: UITableViewController {
 
         var cell:UITableViewCell!
         
-        switch indexPath.section {
-        case 0:
-            var atmCell = tableView.dequeueReusableCellWithIdentifier(ATMCell.reuseIdentitifier()) as ATMCell
-            var atm = atms[indexPath.row] as ATM
-            atmCell.lblTitle.text = atm.title
-            atmCell.iconView?.image = UIImage(named: "atm")
-            atmCell.btnShowOnMap.tag = indexPath.row
-            cell = atmCell
-        case 1:
-            cell = tableView.dequeueReusableCellWithIdentifier("MenuCell") as UITableViewCell
-            var branch = branchs[indexPath.row] as Branch
-            cell.textLabel?.text = branch.title
-            cell.imageView?.image = UIImage(named: "branch")
-            cell.detailTextLabel?.text = branch.phoneNumber
-        default:()
+        if indexPath.section == 0 {
+            cell = tableView.dequeueReusableCellWithIdentifier("TabCell") as UITableViewCell
         }
+        else {
+            if indexPath.section == 1 {
+                if selectedTab == 1 {
+                    cell = tableView.dequeueReusableCellWithIdentifier("MenuCell") as UITableViewCell
+                    var branch = branchs[indexPath.row] as Branch
+                    cell.textLabel?.text = branch.title
+                    cell.imageView?.image = UIImage(named: "branch")
+                    cell.detailTextLabel?.text = branch.phoneNumber
+                }
+                else {
+                    var atmCell = tableView.dequeueReusableCellWithIdentifier(ATMCell.reuseIdentitifier()) as ATMCell
+                    var atm = atms[indexPath.row] as ATM
+                    atmCell.lblTitle.text = atm.title
+                    atmCell.iconView?.image = UIImage(named: "atm")
+                    atmCell.btnShowOnMap.tag = indexPath.row
+                    cell = atmCell
+                }
+            }
+            else {
+                cell = tableView.dequeueReusableCellWithIdentifier("MenuCell") as UITableViewCell
+                var branch = branchs[indexPath.row] as Branch
+                cell.textLabel?.text = branch.title
+                cell.imageView?.image = UIImage(named: "branch")
+                cell.detailTextLabel?.text = branch.phoneNumber
+            }
+        }
+
         
         
         if indexPath.row % 2 == 0 {
@@ -99,6 +133,12 @@ class MenuVC: UITableViewController {
     
     @IBAction func actShowAtmOnMap(sender: UIButton) {
         println("HARITADA GOSTER: \(sender.tag)")
+    }
+    
+    
+    @IBAction func actTabChanged(sender: UISegmentedControl) {
+        selectedTab = sender.selectedSegmentIndex
+        self.tableView.reloadData()
     }
 
     /*
