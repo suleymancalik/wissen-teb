@@ -8,13 +8,13 @@
 
 import UIKit
 
-class ViewController: UIViewController , UICollectionViewDataSource {
+class ViewController: UIViewController , UICollectionViewDataSource , UICollectionViewDelegate , UIAlertViewDelegate {
 
     @IBOutlet var collectionView: UICollectionView!
     
     var shareOptions = [
         ["title" : "Facebook" , "icon" : "facebook"],
-        ["title" : "Twitter"  , "icon" : "twiter"],
+        ["title" : "Twitter"  , "icon" : "twitter"],
         ["title" : "E-Mail"   , "icon" : "email"],
         ["title" : "SMS"      , "icon" : "sms"]
     ]
@@ -44,6 +44,43 @@ class ViewController: UIViewController , UICollectionViewDataSource {
         return cell
     }
 
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        
+        var shareOption = shareOptions[indexPath.item] as Dictionary
+        
+        let iosVersion = NSString(string:UIDevice.currentDevice().systemVersion).doubleValue
+        if iosVersion >= 8 {
+            showAlertOnIOS8(shareOption["title"]!)
+        }
+        else {
+            showAlertOnIOS7(shareOption["title"]!)
+        }
+    }
+    
+    
+    func showAlertOnIOS7(message:String) {
+        
+        var alert = UIAlertView(title: "Yapilan Secim", message: message, delegate: self, cancelButtonTitle: "Tamam")
+        alert.show()
+    }
+    
+    func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
+        println("ALERT kapatildi")
+    }
+    
+    
+    func showAlertOnIOS8(message:String) {
+        var alertController = UIAlertController(title: "Yapilan Secim", message: message, preferredStyle: UIAlertControllerStyle.ActionSheet)
+        
+        var action = UIAlertAction(title: "Tamam", style: UIAlertActionStyle.Default) { (action:UIAlertAction!) -> Void in
+            
+            println("ALERT kapatildi")
+        }
+        alertController.addAction(action)
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
 
 }
 
