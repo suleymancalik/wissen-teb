@@ -11,6 +11,7 @@
 		C51C7C8F19EA9BCD007A9ACF /* ATMCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51C7C8E19EA9BCD007A9ACF /* ATMCell.swift */; };
 		C51C7C9119EA9C53007A9ACF /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51C7C9019EA9C53007A9ACF /* Channel.swift */; };
 		C51C7C9319EA9E18007A9ACF /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C51C7C9219EA9E18007A9ACF /* CoreLocation.framework */; };
+		C51C7C9919EAABA5007A9ACF /* ChannelAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51C7C9819EAABA5007A9ACF /* ChannelAnnotation.swift */; };
 		C567BD7819EA9547001B8CCB /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C567BD7719EA9547001B8CCB /* MapVC.swift */; };
 		C5AAB83C19E921FE008743FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AAB83B19E921FE008743FE /* AppDelegate.swift */; };
 		C5AAB83E19E921FE008743FE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AAB83D19E921FE008743FE /* ViewController.swift */; };
@@ -44,6 +45,7 @@
 		C51C7C9019EA9C53007A9ACF /* Channel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
 		C51C7C9219EA9E18007A9ACF /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		C51C7C9419EA9F01007A9ACF /* Day3-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Day3-Bridging-Header.h"; sourceTree = "<group>"; };
+		C51C7C9819EAABA5007A9ACF /* ChannelAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelAnnotation.swift; sourceTree = "<group>"; };
 		C567BD7719EA9547001B8CCB /* MapVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
 		C5AAB83619E921FE008743FE /* Day3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Day3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5AAB83A19E921FE008743FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 				C51C7C9019EA9C53007A9ACF /* Channel.swift */,
 				C5D026BB19E94B31009571AC /* ATM.swift */,
 				C5D026BD19E954BF009571AC /* Branch.swift */,
+				C51C7C9819EAABA5007A9ACF /* ChannelAnnotation.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -307,6 +310,7 @@
 				C5D026BC19E94B31009571AC /* ATM.swift in Sources */,
 				C51C7C8F19EA9BCD007A9ACF /* ATMCell.swift in Sources */,
 				C567BD7819EA9547001B8CCB /* MapVC.swift in Sources */,
+				C51C7C9919EAABA5007A9ACF /* ChannelAnnotation.swift in Sources */,
 				C5D026B619E9426E009571AC /* MenuVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -383,7 +387,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -419,7 +423,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;

@@ -9,22 +9,63 @@
 import UIKit
 import MapKit
 
-class MapVC: UIViewController {
+class MapVC: UIViewController , MKMapViewDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
     
-    var coordinate:CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 0, longitude: 0)
+    var channel:Channel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        CLLocationManager
+        
+        mapView.delegate = self
 
-        var region = MKCoordinateRegionMakeWithDistance(coordinate, 1000, 2000)
+        var region = MKCoordinateRegionMakeWithDistance(channel.coordinate, 1000, 2000)
         mapView.setRegion(region, animated: true)
+        
+        var annotation = ChannelAnnotation()
+        annotation.channel = channel
+        mapView.addAnnotation(annotation)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    
+    // MARK: MapView
+    
+    func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
+        
+        if annotation is ChannelAnnotation {
+            var identifier = "ChannelAnnotationView"
+            var view = mapView.dequeueReusableAnnotationViewWithIdentifier(identifier)
+            
+            if view == nil {
+                view = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            }
+            view.canShowCallout = true
+            
+            view.rightCalloutAccessoryView = UIButton.buttonWithType(UIButtonType.DetailDisclosure) as UIView
+            view.image = UIImage(named:"atm")
+            
+            return view
+        }
+        else {
+            return nil
+        }
+    }
+    
+
+    
+    
+    
+    func mapView(mapView: MKMapView!, annotationView view: MKAnnotationView!, calloutAccessoryControlTapped control: UIControl!) {
+        
+        // TODO: draw route
     }
     
 
