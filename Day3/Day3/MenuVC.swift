@@ -24,11 +24,17 @@ class MenuVC: UITableViewController {
 
         for index in 0..<10 {
             var atm = ATM(title: "ATM \(index + 1)")
+            var lat = CLLocationDegrees(41.0 + (index * 0.01))
+            var lon = CLLocationDegrees(29.0 + (index * 0.01))
+            atm.coordinate = CLLocationCoordinate2D(latitude:lat, longitude:lon)
             atms.append(atm)
         }
         
         for index in 0..<10 {
             var branch = Branch(title: "Sube \(index + 1)", phoneNumber:"212 292 89 0\(index)")
+            var lat = CLLocationDegrees(41.0 - (index * 0.01))
+            var lon = CLLocationDegrees(29.0 - (index * 0.01))
+            branch.coordinate = CLLocationCoordinate2D(latitude:lat, longitude:lon)
             branchs.append(branch)
         }
 
@@ -133,6 +139,9 @@ class MenuVC: UITableViewController {
     
     @IBAction func actShowAtmOnMap(sender: UIButton) {
         println("HARITADA GOSTER: \(sender.tag)")
+        
+        var atm = atms[sender.tag]
+        self.performSegueWithIdentifier("ShowMapSegue", sender:atm)
     }
     
     
@@ -141,14 +150,24 @@ class MenuVC: UITableViewController {
         self.tableView.reloadData()
     }
 
-    /*
+    
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        
+        if segue.destinationViewController is MapVC {
+            var mapVC = segue.destinationViewController as MapVC
+            var atm:ATM = sender as ATM
+            mapVC.coordinate = atm.coordinate
+        }
     }
-    */
 
 }
+
+
+
+
+
+

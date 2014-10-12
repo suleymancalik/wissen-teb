@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C51C7C8819EA9AE8007A9ACF /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C51C7C8719EA9AE8007A9ACF /* MapKit.framework */; };
+		C51C7C8F19EA9BCD007A9ACF /* ATMCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51C7C8E19EA9BCD007A9ACF /* ATMCell.swift */; };
+		C51C7C9119EA9C53007A9ACF /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51C7C9019EA9C53007A9ACF /* Channel.swift */; };
+		C51C7C9319EA9E18007A9ACF /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C51C7C9219EA9E18007A9ACF /* CoreLocation.framework */; };
+		C567BD7819EA9547001B8CCB /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C567BD7719EA9547001B8CCB /* MapVC.swift */; };
 		C5AAB83C19E921FE008743FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AAB83B19E921FE008743FE /* AppDelegate.swift */; };
 		C5AAB83E19E921FE008743FE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AAB83D19E921FE008743FE /* ViewController.swift */; };
 		C5AAB84119E921FE008743FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5AAB83F19E921FE008743FE /* Main.storyboard */; };
@@ -21,7 +26,6 @@
 		C5D026BE19E954BF009571AC /* Branch.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D026BD19E954BF009571AC /* Branch.swift */; };
 		C5D026C119E95554009571AC /* branch.png in Resources */ = {isa = PBXBuildFile; fileRef = C5D026BF19E95554009571AC /* branch.png */; };
 		C5D026C219E95554009571AC /* branch@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5D026C019E95554009571AC /* branch@2x.png */; };
-		C5D026C419E95BCC009571AC /* ATMCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D026C319E95BCC009571AC /* ATMCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +39,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C51C7C8719EA9AE8007A9ACF /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		C51C7C8E19EA9BCD007A9ACF /* ATMCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATMCell.swift; sourceTree = "<group>"; };
+		C51C7C9019EA9C53007A9ACF /* Channel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
+		C51C7C9219EA9E18007A9ACF /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		C51C7C9419EA9F01007A9ACF /* Day3-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Day3-Bridging-Header.h"; sourceTree = "<group>"; };
+		C567BD7719EA9547001B8CCB /* MapVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
 		C5AAB83619E921FE008743FE /* Day3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Day3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5AAB83A19E921FE008743FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C5AAB83B19E921FE008743FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -53,7 +63,6 @@
 		C5D026BD19E954BF009571AC /* Branch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Branch.swift; sourceTree = "<group>"; };
 		C5D026BF19E95554009571AC /* branch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = branch.png; sourceTree = "<group>"; };
 		C5D026C019E95554009571AC /* branch@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "branch@2x.png"; sourceTree = "<group>"; };
-		C5D026C319E95BCC009571AC /* ATMCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATMCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +70,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C51C7C9319EA9E18007A9ACF /* CoreLocation.framework in Frameworks */,
+				C51C7C8819EA9AE8007A9ACF /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,9 +85,47 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C51C7C8919EA9B48007A9ACF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C51C7C9219EA9E18007A9ACF /* CoreLocation.framework */,
+				C51C7C8719EA9AE8007A9ACF /* MapKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C51C7C8A19EA9B5D007A9ACF /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C567BD7719EA9547001B8CCB /* MapVC.swift */,
+				C5AAB83D19E921FE008743FE /* ViewController.swift */,
+				C5D026B519E9426E009571AC /* MenuVC.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		C51C7C8B19EA9B69007A9ACF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C51C7C9019EA9C53007A9ACF /* Channel.swift */,
+				C5D026BB19E94B31009571AC /* ATM.swift */,
+				C5D026BD19E954BF009571AC /* Branch.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		C51C7C8D19EA9BCD007A9ACF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C51C7C8E19EA9BCD007A9ACF /* ATMCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		C5AAB82D19E921FE008743FE = {
 			isa = PBXGroup;
 			children = (
+				C51C7C8919EA9B48007A9ACF /* Frameworks */,
 				C5AAB83819E921FE008743FE /* Day3 */,
 				C5AAB84E19E921FE008743FE /* Day3Tests */,
 				C5AAB83719E921FE008743FE /* Products */,
@@ -95,17 +144,14 @@
 		C5AAB83819E921FE008743FE /* Day3 */ = {
 			isa = PBXGroup;
 			children = (
+				C51C7C8D19EA9BCD007A9ACF /* Views */,
+				C51C7C8B19EA9B69007A9ACF /* Models */,
+				C51C7C8A19EA9B5D007A9ACF /* Controllers */,
 				C5AAB83B19E921FE008743FE /* AppDelegate.swift */,
-				C5AAB83D19E921FE008743FE /* ViewController.swift */,
 				C5AAB83F19E921FE008743FE /* Main.storyboard */,
 				C5AAB85B19E9231A008743FE /* images */,
-				C5AAB84219E921FE008743FE /* Images.xcassets */,
-				C5AAB84419E921FE008743FE /* LaunchScreen.xib */,
 				C5AAB83919E921FE008743FE /* Supporting Files */,
-				C5D026B519E9426E009571AC /* MenuVC.swift */,
-				C5D026BB19E94B31009571AC /* ATM.swift */,
-				C5D026BD19E954BF009571AC /* Branch.swift */,
-				C5D026C319E95BCC009571AC /* ATMCell.swift */,
+				C51C7C9419EA9F01007A9ACF /* Day3-Bridging-Header.h */,
 			);
 			path = Day3;
 			sourceTree = "<group>";
@@ -113,6 +159,8 @@
 		C5AAB83919E921FE008743FE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C5AAB84219E921FE008743FE /* Images.xcassets */,
+				C5AAB84419E921FE008743FE /* LaunchScreen.xib */,
 				C5AAB83A19E921FE008743FE /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -253,10 +301,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				C5AAB83E19E921FE008743FE /* ViewController.swift in Sources */,
+				C51C7C9119EA9C53007A9ACF /* Channel.swift in Sources */,
 				C5AAB83C19E921FE008743FE /* AppDelegate.swift in Sources */,
 				C5D026BE19E954BF009571AC /* Branch.swift in Sources */,
 				C5D026BC19E94B31009571AC /* ATM.swift in Sources */,
-				C5D026C419E95BCC009571AC /* ATMCell.swift in Sources */,
+				C51C7C8F19EA9BCD007A9ACF /* ATMCell.swift in Sources */,
+				C567BD7819EA9547001B8CCB /* MapVC.swift in Sources */,
 				C5D026B619E9426E009571AC /* MenuVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -380,9 +430,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Day3/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Day3/Day3-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -390,9 +443,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Day3/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Day3/Day3-Bridging-Header.h";
 			};
 			name = Release;
 		};

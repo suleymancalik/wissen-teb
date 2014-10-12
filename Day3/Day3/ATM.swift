@@ -8,10 +8,8 @@
 
 import Foundation
 
-class ATM {
+class ATM:Channel {
 
-    var title:String = ""
-    
     convenience init(title:String) {
         self.init()
         self.title = title

@@ -8,9 +8,8 @@
 
 import Foundation
 
-class Branch {
+class Branch:Channel {
     
-    var title:String = ""
     var phoneNumber:String = ""
     
     convenience init(title:String , phoneNumber:String) {
