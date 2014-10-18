@@ -338,6 +338,9 @@
                                         <include reference="qLl-AQ-ntE"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <action selector="actionSliderChanged:" destination="MeX-qq-Ihc" eventType="valueChanged" id="qDf-ns-QsV"/>
+                                </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3uy-UF-IQL">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
@@ -395,7 +398,7 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="18o-aE-XyR">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="18o-aE-XyR">
                                 <rect key="frame" x="-25" y="-15" width="51" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="31" id="44j-Vg-Rxe"/>
@@ -413,6 +416,9 @@
                                         <include reference="Ss1-RE-LYB"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <action selector="actionSwitchChanged:" destination="MeX-qq-Ihc" eventType="valueChanged" id="Hl6-pj-8Kg"/>
+                                </connections>
                             </switch>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -499,10 +505,15 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="distanceSlider" destination="pjX-Ql-L0k" id="644-H3-jOf"/>
+                        <outlet property="lblDistance" destination="3uy-UF-IQL" id="syz-Tp-bmf"/>
+                        <outlet property="trackingSwitch" destination="18o-aE-XyR" id="Rp3-E1-PGa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wxy-ff-maz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-324" y="690"/>
+            <point key="canvasLocation" x="-480" y="684.75"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cAt-2i-y2g">

@@ -10,17 +10,25 @@ import UIKit
 
 class ChannelDetailVC: UIViewController {
     
+    @IBOutlet weak var trackingSwitch: UISwitch!
+    @IBOutlet weak var lblDistance: UILabel!
+    @IBOutlet weak var distanceSlider: UISlider!
+    
     var channel:Channel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         println("selected channel: \(channel.title)")
+    }    
+    
+    // MARK: - Actions
+    
+    @IBAction func actionSwitchChanged(sender: UISwitch) {
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    
+    @IBAction func actionSliderChanged(sender: UISlider) {
     }
     
 
