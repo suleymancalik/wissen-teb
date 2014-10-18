@@ -19,16 +19,29 @@ class ChannelDetailVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        println("selected channel: \(channel.title)")
-    }    
+        trackingSwitch.setOn(channel.isTracking, animated: false)
+
+        distanceSlider.enabled = channel.isTracking
+        distanceSlider.minimumValue = 100
+        distanceSlider.maximumValue = 1000
+        distanceSlider.setValue(channel.trackingDistance, animated: false)
+        
+        lblDistance.text = String(format:"%.0f m",distanceSlider.value)
+    }
     
     // MARK: - Actions
     
     @IBAction func actionSwitchChanged(sender: UISwitch) {
+        
+        distanceSlider.enabled = sender.on
+        channel.isTracking = sender.on
     }
     
     
     @IBAction func actionSliderChanged(sender: UISlider) {
+        
+        lblDistance.text = String(format:"%.0f m",sender.value)
+        channel.trackingDistance = sender.value
     }
     
 

@@ -8,12 +8,13 @@
 
 import UIKit
 
-class ChannelListVC: UITableViewController {
+class ChannelListVC: UITableViewController , CLLocationManagerDelegate {
 
     var atms:Array<ATM> = []
     var branchs:Array<Branch> = []
     var selectedTab:Int = 0
     
+    var locationManager = CLLocationManager()
     
     override func prefersStatusBarHidden() -> Bool {
         return true
@@ -26,7 +27,7 @@ class ChannelListVC: UITableViewController {
             var atm = ATM(title: "ATM \(index + 1)")
             var lat = CLLocationDegrees(41.0 + (CGFloat(index) * 0.01))
             var lon = CLLocationDegrees(29.0 + (CGFloat(index) * 0.01))
-            println("lat:\(lat) lon:\(lon)")
+//            println("lat:\(lat) lon:\(lon)")
             atm.coordinate = CLLocationCoordinate2D(latitude:lat, longitude:lon)
             atms.append(atm)
         }
@@ -39,14 +40,30 @@ class ChannelListVC: UITableViewController {
             branchs.append(branch)
         }
         
-//        self.title = "Şube/ATM Bul"
+        locationManager.delegate = self
     }
-    
-    
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    override func viewDidAppear(animated: Bool) {
+        
+        
+        for region in locationManager.monitoredRegions {
+            locationManager.stopMonitoringForRegion(region as CLRegion)
+        }
+        
+        for atm in atms {
+            if atm.isTracking {
+                // region olustur
+                // monitore basla
+            }
+        }
+        
+        for branch in branchs {
+            if branch.isTracking {
+                // region olustur
+                // monitore basla
+            }
+        }
     }
     
     
@@ -194,6 +211,20 @@ class ChannelListVC: UITableViewController {
             var detailVC = segue.destinationViewController as ChannelDetailVC
             detailVC.channel = sender as Channel
         }
+    }
+    
+    
+    
+    // MARK: - Monitoring Methods
+    
+    
+    func locationManager(manager: CLLocationManager!, didStartMonitoringForRegion region: CLRegion!) {
+        println("start monitoring: \(region)")
+    }
+    
+    
+    func locationManager(manager: CLLocationManager!, didEnterRegion region: CLRegion!) {
+        println("did enter region: \(region)")
     }
 
 }
