@@ -25,8 +25,8 @@ class ChannelListVC: UITableViewController , CLLocationManagerDelegate {
 
         for index in 0..<10 {
             var atm = ATM(title: "ATM \(index + 1)")
-            var lat = CLLocationDegrees(41.0 + (CGFloat(index) * 0.01))
-            var lon = CLLocationDegrees(29.0 + (CGFloat(index) * 0.01))
+            var lat = CLLocationDegrees(41 + (CGFloat(index) * 0.01))
+            var lon = CLLocationDegrees(29 + (CGFloat(index) * 0.01))
 //            println("lat:\(lat) lon:\(lon)")
             atm.coordinate = CLLocationCoordinate2D(latitude:lat, longitude:lon)
             atms.append(atm)
@@ -40,7 +40,11 @@ class ChannelListVC: UITableViewController , CLLocationManagerDelegate {
             branchs.append(branch)
         }
         
+        println(CLLocationManager.locationServicesEnabled())
+        println(locationManager)
+        locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
         locationManager.delegate = self
+        locationManager.startUpdatingLocation()
     }
 
     
@@ -53,15 +57,15 @@ class ChannelListVC: UITableViewController , CLLocationManagerDelegate {
         
         for atm in atms {
             if atm.isTracking {
-                // region olustur
-                // monitore basla
+                var region  = ChannelRegion(circularRegionWithCenter: atm.coordinate, radius: Double(atm.trackingDistance), identifier:atm.title)
+                locationManager.startMonitoringForRegion(region)
             }
         }
         
         for branch in branchs {
             if branch.isTracking {
-                // region olustur
-                // monitore basla
+                var region  = ChannelRegion(circularRegionWithCenter: branch.coordinate, radius: Double(branch.trackingDistance), identifier:branch.title)
+                locationManager.startMonitoringForRegion(region)
             }
         }
     }
@@ -215,8 +219,17 @@ class ChannelListVC: UITableViewController , CLLocationManagerDelegate {
     
     
     
-    // MARK: - Monitoring Methods
+    // MARK: - Region Monitoring Methods
     
+    
+    func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
+        println("ERR: \(error)")
+    }
+    
+    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+        var location:CLLocation = locations.last as CLLocation
+        println("\(location.coordinate.latitude) \(location.coordinate.longitude)")
+    }
     
     func locationManager(manager: CLLocationManager!, didStartMonitoringForRegion region: CLRegion!) {
         println("start monitoring: \(region)")
@@ -226,8 +239,29 @@ class ChannelListVC: UITableViewController , CLLocationManagerDelegate {
     func locationManager(manager: CLLocationManager!, didEnterRegion region: CLRegion!) {
         println("did enter region: \(region)")
     }
+    
+    
+    func locationManager(manager: CLLocationManager!, didExitRegion region: CLRegion!) {
+        println("did exit region: \(region)")
+    }
 
+    func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+        
+//        if status == CLAuthorizationStatus.Authorized {
+//            println(CLLocationManager.locationServicesEnabled())
+//            println(locationManager)
+//            locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
+//            locationManager.delegate = self
+//            locationManager.startUpdatingLocation()
+//        }
+    }
+    
+    
 }
+
+
+
+
 
 
 

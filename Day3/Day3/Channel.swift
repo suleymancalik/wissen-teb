@@ -8,19 +8,28 @@
 
 import Foundation
 
+enum TrackingDistance:Float {
+    case Minimum = 2000
+    case Maximum = 100000
+}
+
+//let minTrackingDistance:Float = 200
+//let maxTrackingDistance:Float = 1000
+
+
 class Channel {
     
     var title:String = ""
     var coordinate:CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 0, longitude: 0)
     
     var isTracking:Bool = false
-    var trackingDistance:Float = 100 {
+    var trackingDistance:Float = TrackingDistance.Minimum.toRaw() {
         didSet {
-            if trackingDistance < 100 {
-                trackingDistance = 100
+            if trackingDistance < TrackingDistance.Minimum.toRaw() {
+                trackingDistance = TrackingDistance.Minimum.toRaw()
             }
-            else if trackingDistance > 1000 {
-                trackingDistance = 1000
+            else if trackingDistance > TrackingDistance.Maximum.toRaw() {
+                trackingDistance = TrackingDistance.Maximum.toRaw()
             }
         }
     }

@@ -28,6 +28,7 @@
 		C5D026C119E95554009571AC /* branch.png in Resources */ = {isa = PBXBuildFile; fileRef = C5D026BF19E95554009571AC /* branch.png */; };
 		C5D026C219E95554009571AC /* branch@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5D026C019E95554009571AC /* branch@2x.png */; };
 		C5DB0CE519F25E930055358B /* ChannelDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5DB0CE419F25E930055358B /* ChannelDetailVC.swift */; };
+		C5DB0CE719F295A40055358B /* ChannelRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5DB0CE619F295A40055358B /* ChannelRegion.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		C5D026BF19E95554009571AC /* branch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = branch.png; sourceTree = "<group>"; };
 		C5D026C019E95554009571AC /* branch@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "branch@2x.png"; sourceTree = "<group>"; };
 		C5DB0CE419F25E930055358B /* ChannelDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelDetailVC.swift; sourceTree = "<group>"; };
+		C5DB0CE619F295A40055358B /* ChannelRegion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelRegion.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 				C5D026BB19E94B31009571AC /* ATM.swift */,
 				C5D026BD19E954BF009571AC /* Branch.swift */,
 				C51C7C9819EAABA5007A9ACF /* ChannelAnnotation.swift */,
+				C5DB0CE619F295A40055358B /* ChannelRegion.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -250,6 +253,7 @@
 				TargetAttributes = {
 					C5AAB83519E921FE008743FE = {
 						CreatedOnToolsVersion = 6.0.1;
+						DevelopmentTeam = Y3CHWZQ29A;
 					};
 					C5AAB84A19E921FE008743FE = {
 						CreatedOnToolsVersion = 6.0.1;
@@ -309,6 +313,7 @@
 				C5AAB83E19E921FE008743FE /* ViewController.swift in Sources */,
 				C51C7C9119EA9C53007A9ACF /* Channel.swift in Sources */,
 				C5AAB83C19E921FE008743FE /* AppDelegate.swift in Sources */,
+				C5DB0CE719F295A40055358B /* ChannelRegion.swift in Sources */,
 				C5D026BE19E954BF009571AC /* Branch.swift in Sources */,
 				C5D026BC19E94B31009571AC /* ATM.swift in Sources */,
 				C5DB0CE519F25E930055358B /* ChannelDetailVC.swift in Sources */,
@@ -439,9 +444,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Day3/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Day3/Day3-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -452,9 +460,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Day3/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Day3/Day3-Bridging-Header.h";
 			};
 			name = Release;

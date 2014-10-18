@@ -22,8 +22,8 @@ class ChannelDetailVC: UIViewController {
         trackingSwitch.setOn(channel.isTracking, animated: false)
 
         distanceSlider.enabled = channel.isTracking
-        distanceSlider.minimumValue = 100
-        distanceSlider.maximumValue = 1000
+        distanceSlider.minimumValue = TrackingDistance.Minimum.toRaw()
+        distanceSlider.maximumValue = TrackingDistance.Maximum.toRaw()
         distanceSlider.setValue(channel.trackingDistance, animated: false)
         
         lblDistance.text = String(format:"%.0f m",distanceSlider.value)
