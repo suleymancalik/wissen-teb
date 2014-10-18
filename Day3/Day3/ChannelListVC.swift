@@ -1,5 +1,5 @@
 //
-//  MenuVC.swift
+//  ChannelListVC.swift
 //  Day3
 //
 //  Created by Suleyman Calik on 11/10/14.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MenuVC: UITableViewController {
+class ChannelListVC: UITableViewController {
 
     var atms:Array<ATM> = []
     var branchs:Array<Branch> = []
@@ -38,8 +38,11 @@ class MenuVC: UITableViewController {
             branch.coordinate = CLLocationCoordinate2D(latitude:lat, longitude:lon)
             branchs.append(branch)
         }
-
+        
+//        self.title = "Şube/ATM Bul"
     }
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -138,6 +141,32 @@ class MenuVC: UITableViewController {
         return cell
     }
     
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if indexPath.section > 0 {
+            
+            var selectedChannel:Channel?
+            
+            if indexPath.section == 1 {
+                if selectedTab == 1 {
+                    selectedChannel = branchs[indexPath.row]
+                }
+                else {
+                    selectedChannel = atms[indexPath.row]
+                }
+            }
+            else {
+                selectedChannel = branchs[indexPath.row]
+            }
+            
+            
+            self.performSegueWithIdentifier("ChannelDetailSegue", sender:selectedChannel)
+        }
+    }
+    
+    
+    
+    // MARK: Actions
+    
     @IBAction func actShowAtmOnMap(sender: UIButton) {
         println("HARITADA GOSTER: \(sender.tag)")
         
@@ -155,12 +184,15 @@ class MenuVC: UITableViewController {
     
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         
         if segue.destinationViewController is MapVC {
             var mapVC = segue.destinationViewController as MapVC
             mapVC.channel = sender as Channel
+        }
+        else if segue.destinationViewController is ChannelDetailVC {
+            var detailVC = segue.destinationViewController as ChannelDetailVC
+            detailVC.channel = sender as Channel
         }
     }
 

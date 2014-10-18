@@ -20,13 +20,14 @@
 		C5AAB84619E921FE008743FE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5AAB84419E921FE008743FE /* LaunchScreen.xib */; };
 		C5AAB85219E921FE008743FE /* Day3Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AAB85119E921FE008743FE /* Day3Tests.swift */; };
 		C5AAB85D19E9231A008743FE /* manzara.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C5AAB85C19E9231A008743FE /* manzara.jpg */; };
-		C5D026B619E9426E009571AC /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D026B519E9426E009571AC /* MenuVC.swift */; };
+		C5D026B619E9426E009571AC /* ChannelListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D026B519E9426E009571AC /* ChannelListVC.swift */; };
 		C5D026B919E94AD9009571AC /* atm.png in Resources */ = {isa = PBXBuildFile; fileRef = C5D026B719E94AD9009571AC /* atm.png */; };
 		C5D026BA19E94AD9009571AC /* atm@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5D026B819E94AD9009571AC /* atm@2x.png */; };
 		C5D026BC19E94B31009571AC /* ATM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D026BB19E94B31009571AC /* ATM.swift */; };
 		C5D026BE19E954BF009571AC /* Branch.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D026BD19E954BF009571AC /* Branch.swift */; };
 		C5D026C119E95554009571AC /* branch.png in Resources */ = {isa = PBXBuildFile; fileRef = C5D026BF19E95554009571AC /* branch.png */; };
 		C5D026C219E95554009571AC /* branch@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5D026C019E95554009571AC /* branch@2x.png */; };
+		C5DB0CE519F25E930055358B /* ChannelDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5DB0CE419F25E930055358B /* ChannelDetailVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,13 +59,14 @@
 		C5AAB85019E921FE008743FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C5AAB85119E921FE008743FE /* Day3Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day3Tests.swift; sourceTree = "<group>"; };
 		C5AAB85C19E9231A008743FE /* manzara.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = manzara.jpg; sourceTree = "<group>"; };
-		C5D026B519E9426E009571AC /* MenuVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuVC.swift; sourceTree = "<group>"; };
+		C5D026B519E9426E009571AC /* ChannelListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelListVC.swift; sourceTree = "<group>"; };
 		C5D026B719E94AD9009571AC /* atm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = atm.png; sourceTree = "<group>"; };
 		C5D026B819E94AD9009571AC /* atm@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "atm@2x.png"; sourceTree = "<group>"; };
 		C5D026BB19E94B31009571AC /* ATM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATM.swift; sourceTree = "<group>"; };
 		C5D026BD19E954BF009571AC /* Branch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Branch.swift; sourceTree = "<group>"; };
 		C5D026BF19E95554009571AC /* branch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = branch.png; sourceTree = "<group>"; };
 		C5D026C019E95554009571AC /* branch@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "branch@2x.png"; sourceTree = "<group>"; };
+		C5DB0CE419F25E930055358B /* ChannelDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelDetailVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,7 +103,8 @@
 			children = (
 				C567BD7719EA9547001B8CCB /* MapVC.swift */,
 				C5AAB83D19E921FE008743FE /* ViewController.swift */,
-				C5D026B519E9426E009571AC /* MenuVC.swift */,
+				C5D026B519E9426E009571AC /* ChannelListVC.swift */,
+				C5DB0CE419F25E930055358B /* ChannelDetailVC.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -308,10 +311,11 @@
 				C5AAB83C19E921FE008743FE /* AppDelegate.swift in Sources */,
 				C5D026BE19E954BF009571AC /* Branch.swift in Sources */,
 				C5D026BC19E94B31009571AC /* ATM.swift in Sources */,
+				C5DB0CE519F25E930055358B /* ChannelDetailVC.swift in Sources */,
 				C51C7C8F19EA9BCD007A9ACF /* ATMCell.swift in Sources */,
 				C567BD7819EA9547001B8CCB /* MapVC.swift in Sources */,
 				C51C7C9919EAABA5007A9ACF /* ChannelAnnotation.swift in Sources */,
-				C5D026B619E9426E009571AC /* MenuVC.swift in Sources */,
+				C5D026B619E9426E009571AC /* ChannelListVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
