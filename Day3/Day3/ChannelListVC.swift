@@ -40,8 +40,9 @@ class ChannelListVC: UITableViewController , CLLocationManagerDelegate {
             branchs.append(branch)
         }
         
-        println(CLLocationManager.locationServicesEnabled())
-        println(locationManager)
+        if CLLocationManager.authorizationStatus() == CLAuthorizationStatus.NotDetermined {
+            locationManager.requestAlwaysAuthorization()
+        }
         locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
         locationManager.delegate = self
         locationManager.startUpdatingLocation()
