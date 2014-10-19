@@ -405,7 +405,7 @@
                                 </constraints>
                                 <items>
                                     <navigationItem title="Title" id="O00-87-U7e">
-                                        <barButtonItem key="leftBarButtonItem" style="plain" id="dxg-kJ-2pr">
+                                        <barButtonItem key="leftBarButtonItem" id="dxg-kJ-2pr">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="mHF-SJ-Cr4">
                                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -417,7 +417,7 @@
                                                 </connections>
                                             </button>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" style="plain" id="Hfq-ht-sHq">
+                                        <barButtonItem key="rightBarButtonItem" style="done" id="Hfq-ht-sHq">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="lxg-1p-d5e">
                                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -463,8 +463,8 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3Hr-2b-2JJ">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="Aa7-LG-B2Q"/>
-                                    <constraint firstAttribute="width" constant="100" id="l8k-lU-HHr"/>
+                                    <constraint firstAttribute="height" constant="50" id="Aa7-LG-B2Q"/>
+                                    <constraint firstAttribute="width" constant="50" id="l8k-lU-HHr"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -505,15 +505,20 @@
                                     <action selector="actionDeleteAccount:" destination="7c9-Os-TiC" eventType="touchUpInside" id="nvh-22-5cN"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Gzj-AT-J4p">
+                                <rect key="frame" x="-10" y="-10" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="3Hr-2b-2JJ" secondAttribute="centerX" id="E4U-oV-DR8"/>
+                            <constraint firstAttribute="centerX" secondItem="Gzj-AT-J4p" secondAttribute="centerX" id="Fmr-Hi-UAs"/>
                             <constraint firstItem="S1V-Oq-A8C" firstAttribute="leading" secondItem="76L-6a-KLG" secondAttribute="leading" constant="16" id="Ko3-g0-V5F"/>
                             <constraint firstAttribute="centerX" secondItem="cJW-tc-sOS" secondAttribute="centerX" id="Phd-fU-Wz3"/>
                             <constraint firstItem="n8Y-e6-7wW" firstAttribute="top" secondItem="76L-6a-KLG" secondAttribute="top" id="Rk1-lM-vDC"/>
                             <constraint firstItem="S1V-Oq-A8C" firstAttribute="top" secondItem="n8Y-e6-7wW" secondAttribute="bottom" constant="20" id="WHa-GS-ukN"/>
                             <constraint firstItem="3Hr-2b-2JJ" firstAttribute="top" secondItem="S1V-Oq-A8C" secondAttribute="bottom" constant="20" id="Xf1-hj-nz8"/>
+                            <constraint firstItem="3Hr-2b-2JJ" firstAttribute="top" secondItem="Gzj-AT-J4p" secondAttribute="bottom" constant="-35" id="kP5-ca-qQ5"/>
                             <constraint firstItem="cJW-tc-sOS" firstAttribute="top" secondItem="3Hr-2b-2JJ" secondAttribute="bottom" constant="100" id="kVn-83-MN5"/>
                             <constraint firstAttribute="trailing" secondItem="n8Y-e6-7wW" secondAttribute="trailing" id="vCw-v1-vky"/>
                             <constraint firstItem="n8Y-e6-7wW" firstAttribute="leading" secondItem="76L-6a-KLG" secondAttribute="leading" id="ykr-9A-Ltd"/>
@@ -525,6 +530,7 @@
                                 <exclude reference="S1V-Oq-A8C"/>
                                 <exclude reference="3Hr-2b-2JJ"/>
                                 <exclude reference="cJW-tc-sOS"/>
+                                <exclude reference="Gzj-AT-J4p"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="Rk1-lM-vDC"/>
@@ -535,6 +541,8 @@
                                 <exclude reference="zt4-ai-2ds"/>
                                 <exclude reference="E4U-oV-DR8"/>
                                 <exclude reference="Xf1-hj-nz8"/>
+                                <exclude reference="kP5-ca-qQ5"/>
+                                <exclude reference="Fmr-Hi-UAs"/>
                                 <exclude reference="Phd-fU-Wz3"/>
                                 <exclude reference="kVn-83-MN5"/>
                             </mask>
@@ -545,6 +553,7 @@
                                 <include reference="S1V-Oq-A8C"/>
                                 <include reference="3Hr-2b-2JJ"/>
                                 <include reference="cJW-tc-sOS"/>
+                                <include reference="Gzj-AT-J4p"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="Rk1-lM-vDC"/>
@@ -555,6 +564,8 @@
                                 <include reference="zt4-ai-2ds"/>
                                 <include reference="E4U-oV-DR8"/>
                                 <include reference="Xf1-hj-nz8"/>
+                                <include reference="kP5-ca-qQ5"/>
+                                <include reference="Fmr-Hi-UAs"/>
                                 <include reference="Phd-fU-Wz3"/>
                                 <include reference="kVn-83-MN5"/>
                             </mask>
@@ -564,6 +575,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="imgProfile" destination="3Hr-2b-2JJ" id="y12-pb-cf6"/>
+                        <outlet property="indicator" destination="Gzj-AT-J4p" id="FQP-c3-CfP"/>
                         <outlet property="txtFacebookId" destination="S1V-Oq-A8C" id="Ymm-Es-m9J"/>
                     </connections>
                 </viewController>

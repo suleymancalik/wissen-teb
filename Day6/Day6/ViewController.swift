@@ -42,6 +42,7 @@ class ViewController: UIViewController,UIAlertViewDelegate {
         var newUser = User(entity:userEntity!, insertIntoManagedObjectContext:context)
         newUser.username = username
         newUser.password = password
+        newUser.facebookId = ""
         context?.save(nil)
         return newUser
     }

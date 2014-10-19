@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		C5CAEBD219F3D1FC0009E143 /* UserProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5CAEBD119F3D1FC0009E143 /* UserProfileVC.swift */; };
-		C5CAEBD619F3D6870009E143 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5CAEBD519F3D6870009E143 /* User.swift */; };
+		C5CAEBE019F3E6EC0009E143 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5CAEBDF19F3E6EC0009E143 /* User.swift */; };
+		C5CAEBE219F3E6ED0009E143 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5CAEBE119F3E6ED0009E143 /* Card.swift */; };
 		C5DFB81619F3A6AF00443C0C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5DFB81519F3A6AF00443C0C /* AppDelegate.swift */; };
 		C5DFB81919F3A6AF00443C0C /* Day6.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C5DFB81719F3A6AF00443C0C /* Day6.xcdatamodeld */; };
 		C5DFB81B19F3A6AF00443C0C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5DFB81A19F3A6AF00443C0C /* ViewController.swift */; };
@@ -30,7 +31,8 @@
 
 /* Begin PBXFileReference section */
 		C5CAEBD119F3D1FC0009E143 /* UserProfileVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileVC.swift; sourceTree = "<group>"; };
-		C5CAEBD519F3D6870009E143 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		C5CAEBDF19F3E6EC0009E143 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		C5CAEBE119F3E6ED0009E143 /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		C5DFB81019F3A6AF00443C0C /* Day6.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Day6.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5DFB81419F3A6AF00443C0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C5DFB81519F3A6AF00443C0C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -89,9 +91,10 @@
 				C5DFB81F19F3A6AF00443C0C /* Images.xcassets */,
 				C5DFB82119F3A6AF00443C0C /* LaunchScreen.xib */,
 				C5DFB81719F3A6AF00443C0C /* Day6.xcdatamodeld */,
-				C5CAEBD519F3D6870009E143 /* User.swift */,
-				C5DFB81319F3A6AF00443C0C /* Supporting Files */,
+				C5CAEBE119F3E6ED0009E143 /* Card.swift */,
 				C5CAEBD119F3D1FC0009E143 /* UserProfileVC.swift */,
+				C5CAEBDF19F3E6EC0009E143 /* User.swift */,
+				C5DFB81319F3A6AF00443C0C /* Supporting Files */,
 			);
 			path = Day6;
 			sourceTree = "<group>";
@@ -222,9 +225,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				C5DFB81B19F3A6AF00443C0C /* ViewController.swift in Sources */,
+				C5CAEBE219F3E6ED0009E143 /* Card.swift in Sources */,
 				C5DFB81619F3A6AF00443C0C /* AppDelegate.swift in Sources */,
 				C5CAEBD219F3D1FC0009E143 /* UserProfileVC.swift in Sources */,
-				C5CAEBD619F3D6870009E143 /* User.swift in Sources */,
+				C5CAEBE019F3E6EC0009E143 /* User.swift in Sources */,
 				C5DFB81919F3A6AF00443C0C /* Day6.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
