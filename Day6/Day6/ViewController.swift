@@ -60,13 +60,58 @@ class ViewController: UIViewController {
         }
     }
     
+    
+    func checkUsernameAvailability(username:String) -> Bool {
+        var request = NSFetchRequest(entityName: "User")
+        request.returnsObjectsAsFaults = false
+        
+        request.predicate = NSPredicate(format:"username == %@" , username)
+        
+        var users = context?.executeFetchRequest(request, error:nil)
+        
+        if users?.count > 0 {
+            return false
+        }
+        else {
+            return true
+        }
+    }
+    
+    func loginUser(username:String , password:String) -> Bool {
+        var request = NSFetchRequest(entityName: "User")
+        request.returnsObjectsAsFaults = false
+        
+        request.predicate = NSPredicate(format:"(username == %@) AND (password == %@)" , username , password)
+        
+        var users = context?.executeFetchRequest(request, error:nil)
+        
+        if users?.count > 0 {
+            return true
+        }
+        else {
+            return false
+        }
+    }
+    
 
     //MARK: - Action Methods
     
     @IBAction func actionRegister(sender: AnyObject) {
         
         if !txtRegisterUsername.text.isEmpty && !txtRegisterPassword.text.isEmpty && !txtRegisterPasswordAgain.text.isEmpty {
-            // kayit islemleri
+            
+            if txtRegisterPassword.text == txtRegisterPasswordAgain.text {
+                if checkUsernameAvailability(txtRegisterUsername.text) {
+                    addUser(txtRegisterUsername.text, password: txtRegisterPassword.text)
+                    // diger ekrana gec
+                }
+                else {
+                    // hata goster
+                }
+            }
+            else {
+                // hata goster
+            }
         }
         else {
             // show error
@@ -75,7 +120,12 @@ class ViewController: UIViewController {
     
     @IBAction func actionLogin(sender: AnyObject) {
         if !txtLoginUsername.text.isEmpty && !txtLoginPassword.text.isEmpty {
-            // login islemleri
+            if loginUser(txtLoginUsername.text, password: txtLoginPassword.text) {
+                // diger ekrana gec
+            }
+            else {
+                // hata goster
+            }
         }
         else {
             // show error
