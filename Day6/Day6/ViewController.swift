@@ -106,15 +106,15 @@ class ViewController: UIViewController,UIAlertViewDelegate {
                     // diger ekrana gec
                 }
                 else {
-                    // hata goster
+                    showAlert("Kullanıcı adı daha önce alınmış.")
                 }
             }
             else {
-                // hata goster
+                showAlert("Şifreler aynı değil.")
             }
         }
         else {
-            // show error
+            showAlert("Bilgileri eksiksiz giriniz.")
         }
     }
     
@@ -124,11 +124,11 @@ class ViewController: UIViewController,UIAlertViewDelegate {
                 // diger ekrana gec
             }
             else {
-                // hata goster
+                showAlert("Kullanıcı adı yada şifre hatalı.")
             }
         }
         else {
-            // show error
+            showAlert("Bilgileri eksiksiz giriniz.")
         }
     }
 
@@ -145,7 +145,7 @@ class ViewController: UIViewController,UIAlertViewDelegate {
     
     
     func showAlertOnIOS8(message:String) {
-        var alertController = UIAlertController(title: "Yapilan Secim", message: message, preferredStyle: UIAlertControllerStyle.ActionSheet)
+        var alertController = UIAlertController(title: "Hata", message: message, preferredStyle: UIAlertControllerStyle.Alert)
         
         var action = UIAlertAction(title: "Tamam", style: UIAlertActionStyle.Default) { (action:UIAlertAction!) -> Void in
             
