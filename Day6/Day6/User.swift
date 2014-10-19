@@ -9,10 +9,10 @@
 import Foundation
 import CoreData
 
-//@objc(User)
 class User: NSManagedObject {
 
-    @NSManaged var username: String
     @NSManaged var password: String
+    @NSManaged var username: String
+    @NSManaged var facebookId: String
 
 }

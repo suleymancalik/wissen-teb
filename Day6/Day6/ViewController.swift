@@ -38,11 +38,12 @@ class ViewController: UIViewController,UIAlertViewDelegate {
     
     // MARK: CoreData Methods
     
-    func addUser(username:String , password:String) {
+    func addUser(username:String , password:String) -> User {
         var newUser = User(entity:userEntity!, insertIntoManagedObjectContext:context)
         newUser.username = username
         newUser.password = password
         context?.save(nil)
+        return newUser
     }
     
     
@@ -77,7 +78,7 @@ class ViewController: UIViewController,UIAlertViewDelegate {
         }
     }
     
-    func loginUser(username:String , password:String) -> Bool {
+    func loginUser(username:String , password:String) -> User? {
         var request = NSFetchRequest(entityName: "User")
         request.returnsObjectsAsFaults = false
         
@@ -86,10 +87,10 @@ class ViewController: UIViewController,UIAlertViewDelegate {
         var users = context?.executeFetchRequest(request, error:nil)
         
         if users?.count > 0 {
-            return true
+            return users?.first as? User
         }
         else {
-            return false
+            return nil
         }
     }
     
@@ -102,8 +103,8 @@ class ViewController: UIViewController,UIAlertViewDelegate {
             
             if txtRegisterPassword.text == txtRegisterPasswordAgain.text {
                 if checkUsernameAvailability(txtRegisterUsername.text) {
-                    addUser(txtRegisterUsername.text, password: txtRegisterPassword.text)
-                    // diger ekrana gec
+                    var user = addUser(txtRegisterUsername.text, password: txtRegisterPassword.text)
+                    showUserProfile(user)
                 }
                 else {
                     showAlert("Kullanıcı adı daha önce alınmış.")
@@ -120,8 +121,9 @@ class ViewController: UIViewController,UIAlertViewDelegate {
     
     @IBAction func actionLogin(sender: AnyObject) {
         if !txtLoginUsername.text.isEmpty && !txtLoginPassword.text.isEmpty {
-            if loginUser(txtLoginUsername.text, password: txtLoginPassword.text) {
-                // diger ekrana gec
+            var user = loginUser(txtLoginUsername.text, password: txtLoginPassword.text)
+            if  user != nil {
+                showUserProfile(user!)
             }
             else {
                 showAlert("Kullanıcı adı yada şifre hatalı.")
@@ -131,7 +133,27 @@ class ViewController: UIViewController,UIAlertViewDelegate {
             showAlert("Bilgileri eksiksiz giriniz.")
         }
     }
+    
+    //MARK: - Navigation Methods
 
+    func showUserProfile(user:User) {
+        self.performSegueWithIdentifier("UserProfileSegue", sender: user)
+    }
+    
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        txtRegisterUsername.text = ""
+        txtRegisterPassword.text = ""
+        txtRegisterPasswordAgain.text = ""
+        txtLoginUsername.text = ""
+        txtLoginPassword.text = ""
+
+        var profileVC:UserProfileVC = segue.destinationViewController as UserProfileVC
+        profileVC.user = sender as? User
+        profileVC.context = context
+    }
+    
+    //MARK: - Alert Methods
     
     func showAlertOnIOS7(message:String) {
         
