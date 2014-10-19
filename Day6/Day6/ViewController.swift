@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class ViewController: UIViewController {
+class ViewController: UIViewController,UIAlertViewDelegate {
 
     var appDelegate:AppDelegate?
     var context:NSManagedObjectContext?
@@ -131,7 +131,46 @@ class ViewController: UIViewController {
             // show error
         }
     }
+
+    
+    func showAlertOnIOS7(message:String) {
+        
+        var alert = UIAlertView(title: "Yapilan Secim", message: message, delegate: self, cancelButtonTitle: "Tamam")
+        alert.show()
+    }
+    
+    func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
+        println("ALERT kapatildi")
+    }
+    
+    
+    func showAlertOnIOS8(message:String) {
+        var alertController = UIAlertController(title: "Yapilan Secim", message: message, preferredStyle: UIAlertControllerStyle.ActionSheet)
+        
+        var action = UIAlertAction(title: "Tamam", style: UIAlertActionStyle.Default) { (action:UIAlertAction!) -> Void in
+            
+            println("ALERT kapatildi")
+        }
+        alertController.addAction(action)
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+    func showAlert(message:String) {
+        let iosVersion = NSString(string:UIDevice.currentDevice().systemVersion).doubleValue
+        if iosVersion >= 8 {
+            showAlertOnIOS8(message)
+        }
+        else {
+            showAlertOnIOS7(message)
+        }
+    }
+
 }
+
+
+
+
 
 
 
