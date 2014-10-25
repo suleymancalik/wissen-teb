@@ -1,0 +1,3 @@
+[submodule "Notifications/Alamofire"]
+	path = Notifications/Alamofire
+	url = https://github.com/Alamofire/Alamofire.git

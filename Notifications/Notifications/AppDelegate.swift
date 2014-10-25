@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,12 +22,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 println("RegisteredForRemoteNotifications")
             }
             else {
-                // iOS7 ise
-                /*
-                UIApplication.sharedApplication().registerForRemoteNotificationTypes(UIRemoteNotificationType.Alert)
-                */
-                //iOS8 ise
-                UIApplication.sharedApplication().registerForRemoteNotifications()
+                let sharedApp = UIApplication.sharedApplication()
+                if sharedApp.respondsToSelector (Selector("isRegisteredForRemoteNotifications")) {
+                    if !(sharedApp.isRegisteredForRemoteNotifications()) {
+                        registerForPush()
+                    }
+                }
+                else if sharedApp.enabledRemoteNotificationTypes() == UIRemoteNotificationType.None {
+                    registerForPush()
+                }
 
             }
         }
@@ -36,11 +40,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
-        // REMOTE REGISTER BASARILI
-        
-        var deviceTokenStr = NSString(data: deviceToken, encoding: NSASCIIStringEncoding)
-        println("token: \(deviceTokenStr)")
+    func registerForPush() {
+        let sharedApp = UIApplication.sharedApplication()
+        if sharedApp.respondsToSelector(Selector("registerUserNotificationSettings:"))
+        {
+            // Register for push in iOS 8
+            let settings = UIUserNotificationSettings(forTypes: UIUserNotificationType.Alert | UIUserNotificationType.Sound | UIUserNotificationType.Badge, categories: nil)
+            sharedApp.registerUserNotificationSettings(settings)
+            sharedApp.registerForRemoteNotifications()
+        }
+        else
+        {
+            // Register for push in iOS 7
+            sharedApp.registerForRemoteNotificationTypes(UIRemoteNotificationType.Badge | UIRemoteNotificationType.Sound | UIRemoteNotificationType.Alert)
+        }
+    }
+    
+    func application(application: UIApplication,
+        didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+            var deviceTokenStr = deviceToken.description
+            println("deviceTokenStr: \(deviceTokenStr)")
+            deviceTokenStr = deviceTokenStr.stringByTrimmingCharactersInSet(NSCharacterSet(charactersInString: "<>"))
+            deviceTokenStr = deviceTokenStr.stringByReplacingOccurrencesOfString(" ", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil)
+            println("Taken deviceTokenStr: \(deviceTokenStr)")
+            sendPushTokenToServer(deviceTokenStr)
+//            DataCenter.updateUserDeviceToken(deviceTokenStr)
     }
     
     func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
@@ -56,22 +80,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.notification = notification
     }
     
-    func registerForRemoteNoti() {
-        
-    }
+    //MARK: - Server
     
-    func fireLocalNoti() {
+    func sendPushTokenToServer(token:String) {
         
-        var settings = UIUserNotificationSettings(forTypes: UIUserNotificationType.Alert, categories:nil)
-        UIApplication.sharedApplication().registerUserNotificationSettings(settings)
+        Alamofire.Manager.sharedInstance.session.configuration.HTTPAdditionalHeaders
+            = [
+                "X-Parse-Application-Id" : "U9T26PnEU7qXbiRQSgQL0SYtdwKnyR1SF5XvjaVo",
+                "X-Parse-REST-API-Key"   : "vOJLKz3vjwRLOE76096MnRQ899mQnI52QFQ7xOUg",
+                "Content-Type"           : "application/json"]
         
-        var noti = UILocalNotification()
-        noti.alertBody = "Hello World"
-        var fireDate = NSDate(timeIntervalSinceNow:10)
-        noti.fireDate = fireDate
-        noti.applicationIconBadgeNumber = 1
-        noti.userInfo = ["userId" : "12345"]
-        UIApplication.sharedApplication().scheduleLocalNotification(noti)
+        let parameters = [
+            "deviceType": "ios",
+            "deviceToken": token,
+        ]
+        Alamofire.request(.POST,"https://api.parse.com/1/installations", parameters: parameters, encoding:.JSON).response { (request, response, data, error) -> Void in
+            if error == nil {
+                println("installation successful!")
+            } else {
+                println("installation ERROR: \(error)")
+            }
+        }
     }
 }
 

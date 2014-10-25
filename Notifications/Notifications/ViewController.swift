@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        UIApplication.sharedApplication().applicationIconBadgeNumber = 0
+//        UIApplication.sharedApplication().applicationIconBadgeNumber = 0
         
         var appDel = UIApplication.sharedApplication().delegate  as AppDelegate
         if let notification:UILocalNotification = appDel.notification {
