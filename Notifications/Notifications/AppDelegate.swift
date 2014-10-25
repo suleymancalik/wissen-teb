@@ -17,6 +17,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 
+        
+        var sharedUserDefaults = NSUserDefaults(suiteName: "group.wissen.ExtensionSharingDefaults")
+        sharedUserDefaults?.setInteger(UIApplication.sharedApplication().applicationIconBadgeNumber, forKey: "BadgeNumber")
+        sharedUserDefaults?.synchronize()
+        
+        var badgeNumber = sharedUserDefaults?.integerForKey("BadgeNumber")
+        
         if launchOptions == nil {
             if UIApplication.sharedApplication().isRegisteredForRemoteNotifications() {
                 println("RegisteredForRemoteNotifications")
