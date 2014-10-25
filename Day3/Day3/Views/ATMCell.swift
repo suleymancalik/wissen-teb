@@ -14,10 +14,33 @@ class ATMCell: UITableViewCell {
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var btnShowOnMap: UIButton!
     
+    @IBOutlet weak var constraintImgWidth: NSLayoutConstraint!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+
+        self.printValues()
+//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(1 * Double(NSEC_PER_SEC))), dispatch_get_main_queue(),{ () -> Void in
+//            self.printValues()
+//        })
     }
+    
+    func printValues() {
+        
+        //constraintImgWidth.constant = 100
+        
+        
+        self.constraintImgWidth.constant = 100
+        UIView.animateWithDuration(3, animations: { () -> Void in
+//            self.iconView.frame.size.width = 100
+//            self.layoutIfNeeded()
+            }) { (completed:Bool) -> Void in
+//                self.iconView.frame.size.width = 0
+//                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(2 * Double(NSEC_PER_SEC))), dispatch_get_main_queue(),{ () -> Void in
+                    self.printValues()
+//                })
+        }
+    }
+    
     
     class func height() -> CGFloat {
         return 60
@@ -26,12 +49,15 @@ class ATMCell: UITableViewCell {
     class func reuseIdentitifier() -> String {
         return "ATMCell"
     }
-    
 
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    /*
+    override func drawRect(rect: CGRect) {
+        var test:NSString = "deneme"
+        var key : NSString = NSString(string: "UITextAttributeFont")
+        var font = UIFont(name:"Helvetica", size: 20)
+        var attributes:Dictionary<NSObject,AnyObject> = [key:font!]
+        test.drawAtPoint(CGPoint(x:0, y:0), withAttributes:attributes)
     }
+    */
 
 }

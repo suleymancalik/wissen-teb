@@ -23,13 +23,13 @@ class Channel {
     var coordinate:CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 0, longitude: 0)
     
     var isTracking:Bool = false
-    var trackingDistance:Float = TrackingDistance.Minimum.toRaw() {
+    var trackingDistance:Float = TrackingDistance.Minimum.rawValue {
         didSet {
-            if trackingDistance < TrackingDistance.Minimum.toRaw() {
-                trackingDistance = TrackingDistance.Minimum.toRaw()
+            if trackingDistance < TrackingDistance.Minimum.rawValue {
+                trackingDistance = TrackingDistance.Minimum.rawValue
             }
-            else if trackingDistance > TrackingDistance.Maximum.toRaw() {
-                trackingDistance = TrackingDistance.Maximum.toRaw()
+            else if trackingDistance > TrackingDistance.Maximum.rawValue {
+                trackingDistance = TrackingDistance.Maximum.rawValue
             }
         }
     }

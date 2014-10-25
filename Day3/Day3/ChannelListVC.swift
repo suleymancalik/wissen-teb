@@ -34,8 +34,8 @@ class ChannelListVC: UITableViewController , CLLocationManagerDelegate {
         
         for index in 0..<10 {
             var branch = Branch(title: "Sube \(index + 1)", phoneNumber:"212 292 89 0\(index)")
-            var lat = CLLocationDegrees(41.0 - (index * 0.1))
-            var lon = CLLocationDegrees(29.0 - (index * 0.1))
+            var lat = CLLocationDegrees(41.0 - ( CGFloat(index) * 0.1))
+            var lon = CLLocationDegrees(29.0 - ( CGFloat(index) * 0.1))
             branch.coordinate = CLLocationCoordinate2D(latitude:lat, longitude:lon)
             branchs.append(branch)
         }
@@ -129,8 +129,8 @@ class ChannelListVC: UITableViewController , CLLocationManagerDelegate {
                 if selectedTab == 1 {
                     cell = tableView.dequeueReusableCellWithIdentifier("MenuCell") as UITableViewCell
                     var branch = branchs[indexPath.row] as Branch
-                    cell.textLabel?.text = branch.title
-                    cell.imageView?.image = UIImage(named: "branch")
+                    cell.textLabel.text = branch.title
+                    cell.imageView.image = UIImage(named: "branch")
                     cell.detailTextLabel?.text = branch.phoneNumber
                 }
                 else {
@@ -145,8 +145,8 @@ class ChannelListVC: UITableViewController , CLLocationManagerDelegate {
             else {
                 cell = tableView.dequeueReusableCellWithIdentifier("MenuCell") as UITableViewCell
                 var branch = branchs[indexPath.row] as Branch
-                cell.textLabel?.text = branch.title
-                cell.imageView?.image = UIImage(named: "branch")
+                cell.textLabel.text = branch.title
+                cell.imageView.image = UIImage(named: "branch")
                 cell.detailTextLabel?.text = branch.phoneNumber
             }
         }
@@ -162,6 +162,10 @@ class ChannelListVC: UITableViewController , CLLocationManagerDelegate {
         
         return cell
     }
+    
+//    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+//        
+//    }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.section > 0 {
@@ -229,7 +233,7 @@ class ChannelListVC: UITableViewController , CLLocationManagerDelegate {
     
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
         var location:CLLocation = locations.last as CLLocation
-        println("\(location.coordinate.latitude) \(location.coordinate.longitude)")
+//        println("\(location.coordinate.latitude) \(location.coordinate.longitude)")
     }
     
     func locationManager(manager: CLLocationManager!, didStartMonitoringForRegion region: CLRegion!) {

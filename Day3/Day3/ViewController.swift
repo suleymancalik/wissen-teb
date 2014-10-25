@@ -16,10 +16,11 @@ class ViewController: UIViewController , UIScrollViewDelegate {
         super.viewDidLoad()
 
         prepareManzara()
+        
     }
     
     func prepareManzara() {
-        var manzaraImage = UIImage(named: "manzara.jpg")
+        var manzaraImage:UIImage! = UIImage(named: "manzara.jpg")
         var manzaraImageView = UIImageView(image: manzaraImage)
         scrollView.addSubview(manzaraImageView)
         
