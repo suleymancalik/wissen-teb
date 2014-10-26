@@ -16,8 +16,6 @@ class ViewController: UIViewController {
         
         var userDefaults = NSUserDefaults.standardUserDefaults()
         
-        
-        
         if  let myText = userDefaults.stringForKey("mySuperString2") {
             println(myText)
         }
@@ -28,8 +26,33 @@ class ViewController: UIViewController {
             println("String kaydedildi")
         }
         
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name:UIKeyboardWillShowNotification, object: nil)
+        
+        NSNotificationCenter.defaultCenter().postNotificationName("SELAM", object:1)
+    }
+    
+    func keyboardWillShow(notification:NSNotification) {
+        var info:NSDictionary = notification.userInfo!
+        var endFrame = info[UIKeyboardFrameEndUserInfoKey]?.CGRectValue()
+        view.frame.origin.y = -endFrame!.size.height
     }
 
+    
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
