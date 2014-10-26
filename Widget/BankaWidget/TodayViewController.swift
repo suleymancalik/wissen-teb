@@ -38,7 +38,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
             lblTitle.text = text
         }
         else {
-            lblTitle.text = "Giris Yap"
+            lblTitle.text = NSLocalizedString("Giris YapX", comment:"")
         }
     }
     

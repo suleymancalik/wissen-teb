@@ -17,6 +17,7 @@
 		C504FAFE19FD268700C7F5C4 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C504FAFD19FD268700C7F5C4 /* TodayViewController.swift */; };
 		C504FB0019FD268700C7F5C4 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C504FAFF19FD268700C7F5C4 /* MainInterface.storyboard */; };
 		C504FB0319FD268700C7F5C4 /* BankaWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = C504FAF619FD268700C7F5C4 /* BankaWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		C504FB0C19FD397B00C7F5C4 /* Localization.strings in Resources */ = {isa = PBXBuildFile; fileRef = C504FB0A19FD397B00C7F5C4 /* Localization.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,10 @@
 		C504FAFF19FD268700C7F5C4 /* MainInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
 		C504FB0819FD2C3D00C7F5C4 /* BankaWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = BankaWidget.entitlements; sourceTree = "<group>"; };
 		C504FB0919FD2C9800C7F5C4 /* Widget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Widget.entitlements; sourceTree = "<group>"; };
+		C504FB0B19FD397B00C7F5C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localization.strings; sourceTree = "<group>"; };
+		C504FB0F19FD3A2E00C7F5C4 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Main.strings; sourceTree = "<group>"; };
+		C504FB1019FD3A2E00C7F5C4 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		C504FB1119FD3A2E00C7F5C4 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localization.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +132,7 @@
 				C504FAD919FD25D200C7F5C4 /* Images.xcassets */,
 				C504FADB19FD25D200C7F5C4 /* LaunchScreen.xib */,
 				C504FAD019FD25D200C7F5C4 /* Supporting Files */,
+				C504FB0A19FD397B00C7F5C4 /* Localization.strings */,
 			);
 			path = Widget;
 			sourceTree = "<group>";
@@ -280,6 +286,7 @@
 			knownRegions = (
 				en,
 				Base,
+				tr,
 			);
 			mainGroup = C504FAC419FD25D200C7F5C4;
 			productRefGroup = C504FACE19FD25D200C7F5C4 /* Products */;
@@ -299,6 +306,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C504FAD819FD25D200C7F5C4 /* Main.storyboard in Resources */,
+				C504FB0C19FD397B00C7F5C4 /* Localization.strings in Resources */,
 				C504FADD19FD25D200C7F5C4 /* LaunchScreen.xib in Resources */,
 				C504FADA19FD25D200C7F5C4 /* Images.xcassets in Resources */,
 			);
@@ -367,6 +375,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				C504FAD719FD25D200C7F5C4 /* Base */,
+				C504FB0F19FD3A2E00C7F5C4 /* tr */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -375,8 +384,18 @@
 			isa = PBXVariantGroup;
 			children = (
 				C504FADC19FD25D200C7F5C4 /* Base */,
+				C504FB1019FD3A2E00C7F5C4 /* tr */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		C504FB0A19FD397B00C7F5C4 /* Localization.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C504FB0B19FD397B00C7F5C4 /* Base */,
+				C504FB1119FD3A2E00C7F5C4 /* tr */,
+			);
+			name = Localization.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -576,6 +595,7 @@
 				C504FAEE19FD25D200C7F5C4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C504FAEF19FD25D200C7F5C4 /* Build configuration list for PBXNativeTarget "WidgetTests" */ = {
 			isa = XCConfigurationList;
@@ -584,6 +604,7 @@
 				C504FAF119FD25D200C7F5C4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C504FB0419FD268700C7F5C4 /* Build configuration list for PBXNativeTarget "BankaWidget" */ = {
 			isa = XCConfigurationList;
@@ -592,6 +613,7 @@
 				C504FB0619FD268700C7F5C4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
