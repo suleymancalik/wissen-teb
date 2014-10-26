@@ -16,9 +16,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 
-        registerForPush()
-
-        /*
         let sharedApplication = UIApplication.sharedApplication()
         if sharedApplication.respondsToSelector (Selector("isRegisteredForRemoteNotifications")) {
             
@@ -31,9 +28,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 registerForPush()
             }
         }
-*/
+        
+        
+        if launchOptions != nil {
+            var pushDict = launchOptions![UIApplicationLaunchOptionsRemoteNotificationKey]
+                as Dictionary<NSObject,AnyObject>
+            var campaignId = pushDict["campaignId"] as String
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(1 * Double(NSEC_PER_SEC))), dispatch_get_main_queue(),{ () -> Void in
+                self.showCampaignId(campaignId)
+            })
+        }
         
         return true
+    }
+    
+    func showCampaignId(campaignId:String) {
+        var alert = UIAlertController(title: "Push Geldi", message: campaignId, preferredStyle: UIAlertControllerStyle.Alert)
+        window?.rootViewController?.presentViewController(alert, animated: true, completion: nil)
     }
     
     
@@ -78,7 +89,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var err: NSError?
         request.HTTPBody = NSJSONSerialization.dataWithJSONObject(params, options: nil, error: &err)
         
-        println("REQUEST: \(request.allHTTPHeaderFields)")
+        if err != nil {
+            println("BODY ERR: \(err)")
+            return
+        }
+        
         var task = NSURLSession.sharedSession().dataTaskWithRequest(request) { (data, response, error) -> Void in
             if error == nil {
                 println("UPLOAD SUCCESS: \(response)")
@@ -88,6 +103,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         task.resume()
+    }
+    
+    
+    
+    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
+        var campaignId = userInfo["campaignId"] as String
+        println(campaignId)
     }
 }
 
